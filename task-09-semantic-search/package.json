@@ -1,0 +1,13 @@
+{
+  "name": "task-09-semantic-search",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Initial scaffold for an internship semantic search API.",
+  "type": "module",
+  "scripts": {
+    "scaffold:status": "node -e \"console.log('Task 9 scaffold created. Functional implementation has not started.')\""
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

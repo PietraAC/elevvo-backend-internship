@@ -1,0 +1,29 @@
+# Dependencies and generated output
+**/node_modules/
+**/dist/
+**/coverage/
+**/.cache/
+task-05-relational-persistence/src/generated/
+
+# Environment files and runtime data
+**/.env
+!**/.env.example
+*.log
+*.pid
+
+# Private internship source material
+/materials/
+/tasks - backend/
+/PLANO_DE_ACAO_INTERNSHIP.md
+Internship_Instructions.pdf
+
+# Temporary files
+/.tmp-*/
+/tmp/
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
