@@ -29,7 +29,7 @@ The planned implementation order is **Task 5 -> Task 9 -> Task 7 -> Task 10**.
 | Task | Focus | Status | Repository area |
 |---|---|---|---|
 | 5 | PostgreSQL, Prisma, relationships, migrations, and atomic checkout | Implemented and verified locally | [`task-05-relational-persistence`](task-05-relational-persistence) |
-| 9 | Semantic search, embeddings, pgvector, and Redis result caching | Initial scaffold and specification | [`task-09-semantic-search`](task-09-semantic-search) |
+| 9 | Semantic search, embeddings, pgvector, and Redis result caching | Implemented and verified locally | [`task-09-semantic-search`](task-09-semantic-search) |
 | 7 | Multi-stage Docker builds and automated CI quality gates | Planned | [`task-07-docker-ci-cd`](task-07-docker-ci-cd) |
 | 10 | Production-grade e-commerce integration and cloud delivery | Planned | [`task-10-production-ecommerce`](task-10-production-ecommerce) |
 
@@ -76,7 +76,7 @@ documentation.
 ```text
 .
 |-- task-05-relational-persistence/  # Completed relational persistence project
-|-- task-09-semantic-search/         # Initial semantic-search scaffold
+|-- task-09-semantic-search/         # Completed semantic-search service and lab
 |-- task-07-docker-ci-cd/            # Planned container and CI project
 |-- task-10-production-ecommerce/    # Planned integration capstone
 |-- specs/                            # Detailed implementation specifications

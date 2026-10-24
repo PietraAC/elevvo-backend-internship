@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Interactive demonstration of meaning-based product discovery." />
+    <title>Semantic Search Lab</title>
+    <link rel="stylesheet" href="/demo/assets/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">ELEVVO BACKEND INTERNSHIP · TASK 09</p>
+          <h1>Semantic Search Lab</h1>
+          <p class="subtitle">Discover products by meaning, powered by local embeddings, pgvector, and Redis.</p>
+        </div>
+        <div class="status-panel" aria-live="polite">
+          <span class="pulse"></span>
+          <div><small>SERVICE</small><strong id="serviceStatus">Checking...</strong></div>
+        </div>
+      </header>
+
+      <section class="architecture" aria-label="Search architecture">
+        <span>Query</span><b>→</b><span>Embedding</span><b>→</b><span>Redis</span><b>→</b><span>pgvector</span><b>→</b><span>Ranked Results</span>
+      </section>
+
+      <section class="search-panel">
+        <form id="searchForm">
+          <label for="query">Describe what you need</label>
+          <div class="search-row">
+            <input id="query" name="q" minlength="3" maxlength="300" value="something warm and light for a snowy hike" autocomplete="off" />
+            <button type="submit">Search</button>
+            <button type="button" class="secondary" id="compareButton">Run cache comparison</button>
+          </div>
+        </form>
+        <div class="chips" id="queryChips" aria-label="Example searches"></div>
+      </section>
+
+      <div id="error" class="error" role="alert" hidden></div>
+
+      <section class="dashboard">
+        <div class="results-column">
+          <div class="section-title">
+            <div><p class="eyebrow">LIVE RANKING</p><h2>Results</h2></div>
+            <span id="cacheBadge" class="badge neutral">READY</span>
+          </div>
+          <div id="results" class="results" aria-live="polite">
+            <div class="empty">Run a query to inspect semantic matches.</div>
+          </div>
+        </div>
+
+        <aside>
+          <section class="metrics-card">
+            <p class="eyebrow">REQUEST TELEMETRY</p>
+            <div class="metrics">
+              <div><strong id="totalMs">—</strong><small>Total ms</small></div>
+              <div><strong id="embeddingMs">—</strong><small>Embedding ms</small></div>
+              <div><strong id="databaseMs">—</strong><small>Database ms</small></div>
+              <div><strong id="cacheMs">—</strong><small>Cache ms</small></div>
+            </div>
+            <dl>
+              <div><dt>Model</dt><dd id="model">—</dd></div>
+              <div><dt>Catalog version</dt><dd id="catalogVersion">—</dd></div>
+              <div><dt>Cache TTL</dt><dd id="cacheTtl">—</dd></div>
+            </dl>
+          </section>
+
+          <section class="comparison-card">
+            <div class="section-title"><div><p class="eyebrow">CACHE-ASIDE</p><h2>Cold vs warm</h2></div></div>
+            <div class="comparison">
+              <div><span id="coldBadge" class="badge neutral">COLD</span><strong id="coldTime">—</strong><small>Total response</small></div>
+              <div><span id="warmBadge" class="badge neutral">WARM</span><strong id="warmTime">—</strong><small>Total response</small></div>
+            </div>
+          </section>
+        </aside>
+      </section>
+    </main>
+    <script src="/demo/assets/app.js" defer></script>
+  </body>
+</html>

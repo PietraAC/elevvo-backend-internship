@@ -1,13 +1,46 @@
 {
   "name": "task-09-semantic-search",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
-  "description": "Initial scaffold for an internship semantic search API.",
+  "description": "AI-powered product semantic search with local embeddings, PostgreSQL/pgvector, and Redis.",
   "type": "module",
   "scripts": {
-    "scaffold:status": "node -e \"console.log('Task 9 scaffold created. Functional implementation has not started.')\""
+    "dev": "tsx src/server.ts",
+    "start": "node dist/src/server.js",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.build.json && node scripts/copy-assets.mjs",
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand",
+    "test:unit": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand tests/unit",
+    "test:http": "node --experimental-vm-modules node_modules/jest/bin/jest.js --runInBand tests/http",
+    "migrate": "tsx scripts/migrate.ts",
+    "seed": "tsx scripts/seed.ts",
+    "reindex": "tsx scripts/reindex.ts",
+    "reindex:dry": "tsx scripts/reindex.ts --dry-run",
+    "acceptance": "tsx scripts/acceptance.ts",
+    "benchmark": "tsx scripts/benchmark.ts",
+    "verify": "npm run typecheck && npm run test && npm run build && npm run acceptance"
   },
   "engines": {
     "node": ">=20"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^4.3.1",
+    "dotenv": "17.2.3",
+    "express": "5.1.0",
+    "pg": "8.16.3",
+    "redis": "5.9.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/express": "5.0.5",
+    "@types/jest": "30.0.0",
+    "@types/node": "24.10.0",
+    "@types/pg": "8.15.6",
+    "@types/supertest": "6.0.3",
+    "jest": "30.2.0",
+    "supertest": "7.1.4",
+    "ts-jest": "29.4.5",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3"
   }
 }

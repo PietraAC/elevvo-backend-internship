@@ -5,11 +5,11 @@
 | Field | Value |
 |---|---|
 | Project | Task 9 - AI-Powered Semantic Search and Vector Embedding Pipeline |
-| Status | Approved implementation specification; code not started |
+| Status | Implemented and verified locally |
 | Repository directory | `task-09-semantic-search` |
 | Primary language | English |
-| Planned API URL | `http://localhost:3009` |
-| Planned demonstration URL | `http://localhost:3009/demo` |
+| Local API URL | `http://localhost:3009` |
+| Local demonstration URL | `http://localhost:3009/demo` |
 
 This document is the implementation contract for Task 9. Any intentional
 deviation must be recorded in an Architecture Decision Record before the code is

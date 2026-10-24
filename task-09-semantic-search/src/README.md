@@ -1,6 +1,6 @@
 # Source structure
 
-This directory currently contains placeholders only. The implementation will be organized by responsibility:
+The implementation is organized by responsibility:
 
 - `config/`: validated runtime configuration
 - `errors/`: application and transport error types
@@ -8,6 +8,6 @@ This directory currently contains placeholders only. The implementation will be 
 - `middleware/`: HTTP middleware and request lifecycle hooks
 - `modules/products/`: product ingestion and persistence
 - `modules/search/`: embedding, ranking, and search orchestration
-- `public/demo/`: the future browser-based portfolio demo
+- `public/demo/`: the browser-based portfolio demo
 
-Files will be added incrementally as each behavior is implemented and tested.
+The application entry points are `app.ts` and `server.ts`. The major external concerns remain behind interfaces so they can be replaced or reused without changing the orchestration contract.
