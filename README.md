@@ -33,6 +33,14 @@ The planned implementation order is **Task 5 -> Task 9 -> Task 7 -> Task 10**.
 | 7 | Multi-stage Docker builds and automated CI quality gates | Planned | [`task-07-docker-ci-cd`](task-07-docker-ci-cd) |
 | 10 | Production-grade e-commerce integration and cloud delivery | Planned | [`task-10-production-ecommerce`](task-10-production-ecommerce) |
 
+## Architecture roadmap
+
+![Backend internship architecture roadmap](docs/portfolio-architecture.svg)
+
+The roadmap makes the dependency between the selected tasks explicit: durable
+relational data supports semantic discovery, which is followed by reliable
+delivery automation and the final production-oriented capstone.
+
 ## Technical progression
 
 ```mermaid
@@ -55,9 +63,9 @@ historical item snapshots, and complete rollback behavior.
 
 ### Task 9 - AI discovery
 
-Task 9 will transform product descriptions and natural-language queries into
-dense embeddings, store product vectors in PostgreSQL with pgvector, rank
-results by cosine similarity, and cache repeated query results in Redis.
+Task 9 transforms product descriptions and natural-language queries into dense
+embeddings, stores product vectors in PostgreSQL with pgvector, ranks results
+by cosine similarity, and caches repeated query results in Redis.
 
 ### Task 7 - Delivery automation
 
@@ -109,6 +117,15 @@ demonstration format suited to its actual backend behavior:
 | 7 | Container image stages, healthy services, and passing/failing CI quality gates |
 | 10 | Published API, deep health data, deployment workflow, and end-to-end smoke test |
 
+## Visual evidence
+
+Both completed projects include a real, read-only browser lab backed by their
+running APIs. The committed screenshots are safe to use in a portfolio or
+LinkedIn post:
+
+- [Task 5 — Relational Persistence Lab](task-05-relational-persistence/docs/evidence/task-05-relational-persistence-lab.png)
+- [Task 9 — Semantic Search Lab](task-09-semantic-search/docs/evidence/task-09-semantic-search-lab.png)
+
 These artifacts are generated from the real implementation. Mocked screenshots
 or fabricated performance results are not accepted as evidence.
 
@@ -130,8 +147,7 @@ to remain a useful standalone portfolio project.
 - [x] Shared repository and evidence standards
 - [x] Task 5 implementation and automated verification
 - [x] Task 9 implementation specification
-- [x] Task 9 initial repository scaffold
-- [ ] Task 9 functional implementation
+- [x] Task 9 functional implementation and automated verification
 - [ ] Task 7 implementation
 - [ ] Task 10 implementation and cloud delivery
 - [ ] Final public demonstration post and internship submission

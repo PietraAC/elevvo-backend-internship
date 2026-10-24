@@ -6,6 +6,12 @@ e-commerce checkout with PostgreSQL and Prisma ORM.
 
 **Status:** Implemented and verified locally.
 
+![Task 5 Relational Persistence Lab](docs/evidence/task-05-relational-persistence-lab.png)
+
+The screenshot above is generated from the running application. The read-only
+lab combines live API data, the entity relationships, inventory indicators,
+and the atomic checkout flow in one portfolio-ready view.
+
 ## Implemented features
 
 - User, Product, Cart, CartItem, Order, and OrderItem models.
@@ -31,6 +37,7 @@ to open its interactive menu, or run a command from a terminal:
 
 ```bat
 task.bat run
+task.bat demo
 task.bat test
 task.bat verify
 task.bat seed
@@ -39,6 +46,8 @@ task.bat stop
 
 - `run` starts the Task 5 PostgreSQL service, applies migrations, and runs the
   API at `http://localhost:3000`.
+- `demo` opens the screenshot-ready Relational Persistence Lab at
+  `http://localhost:3000/demo` when the API is running.
 - `test` starts the isolated test database, runs the complete test suite, and
   stops the test database.
 - `verify` runs strict type checking, tests, and the production build.
@@ -76,9 +85,10 @@ by using `TEST_DATABASE_URL` as `DATABASE_URL` for `npm run db:deploy`.
 
 ## Portfolio evidence
 
-Task 5 is a backend project, so its functional evidence does not require a
-frontend. The recommended screenshots are:
+Task 5 includes a read-only visual lab backed by the real API. The recommended
+screenshots are:
 
+- the Relational Persistence Lab with the live seeded catalog and entity graph;
 - the rendered Mermaid entity-relationship diagram;
 - a successful checkout response in an API client;
 - the rollback response for insufficient stock;

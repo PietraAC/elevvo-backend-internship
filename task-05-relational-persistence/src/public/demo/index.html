@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Visual evidence for relational persistence and atomic checkout." />
+    <title>Relational Persistence Lab</title>
+    <link rel="stylesheet" href="/demo/assets/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="hero">
+        <div>
+          <p class="eyebrow">ELEVVO BACKEND INTERNSHIP · TASK 05</p>
+          <h1>Relational Persistence Lab</h1>
+          <p class="subtitle">PostgreSQL relationships, Prisma persistence, and atomic checkout guarantees.</p>
+        </div>
+        <div class="status"><span></span><div><small>API STATUS</small><strong id="apiStatus">CHECKING</strong></div></div>
+      </header>
+
+      <section class="architecture" aria-label="Application architecture">
+        <div><small>CLIENT</small><strong>REST API</strong></div><b>→</b>
+        <div><small>APPLICATION</small><strong>Express</strong></div><b>→</b>
+        <div><small>DATA ACCESS</small><strong>Prisma ORM</strong></div><b>→</b>
+        <div><small>SOURCE OF TRUTH</small><strong>PostgreSQL</strong></div>
+      </section>
+
+      <section class="metrics" aria-label="Live catalog metrics">
+        <article><small>RELATIONAL ENTITIES</small><strong>6</strong><span>User to OrderItem</span></article>
+        <article><small>ACTIVE PRODUCTS</small><strong id="productCount">—</strong><span>Loaded from PostgreSQL</span></article>
+        <article><small>IN-STOCK ITEMS</small><strong id="stockCount">—</strong><span>Database filter ready</span></article>
+        <article><small>TRANSACTION LEVEL</small><strong class="word">SERIALIZABLE</strong><span>Atomic checkout</span></article>
+      </section>
+
+      <section class="dashboard">
+        <article class="panel model-panel">
+          <div class="panel-heading"><div><p class="eyebrow">RELATIONAL MODEL</p><h2>Entity graph</h2></div><span class="pill">6 TABLES</span></div>
+          <div class="model">
+            <div class="entity primary"><strong>User</strong><span>owns</span></div>
+            <div class="connector">1 ─── 1</div>
+            <div class="entity"><strong>Cart</strong><span>contains</span></div>
+            <div class="connector">1 ─── *</div>
+            <div class="entity junction"><strong>CartItem</strong><span>quantity</span></div>
+            <div class="connector">* ─── 1</div>
+            <div class="entity"><strong>Product</strong><span>stock + price</span></div>
+          </div>
+          <div class="model second-row">
+            <div class="entity primary"><strong>User</strong><span>places</span></div>
+            <div class="connector">1 ─── *</div>
+            <div class="entity"><strong>Order</strong><span>total</span></div>
+            <div class="connector">1 ─── *</div>
+            <div class="entity junction"><strong>OrderItem</strong><span>price snapshot</span></div>
+            <div class="connector">* ─── 1</div>
+            <div class="entity"><strong>Product</strong><span>logical delete</span></div>
+          </div>
+          <div class="guarantees">
+            <span>✓ Conditional stock deduction</span><span>✓ Full rollback</span><span>✓ Immutable order snapshots</span>
+          </div>
+        </article>
+
+        <article class="panel catalog-panel">
+          <div class="panel-heading"><div><p class="eyebrow">LIVE DATABASE</p><h2>Seeded catalog</h2></div><span class="pill live">LIVE</span></div>
+          <div id="catalog" class="catalog"><div class="loading">Loading PostgreSQL records…</div></div>
+        </article>
+      </section>
+
+      <section class="transaction panel">
+        <div><p class="eyebrow">ATOMIC CHECKOUT</p><h2>One transaction, all-or-nothing</h2></div>
+        <ol>
+          <li><span>01</span>Reload cart</li><li><span>02</span>Validate stock</li><li><span>03</span>Deduct conditionally</li><li><span>04</span>Create snapshots</li><li><span>05</span>Clear cart</li>
+        </ol>
+        <div class="result"><small>FAILURE PATH</small><strong>Any error → complete rollback</strong></div>
+      </section>
+    </main>
+    <script src="/demo/assets/app.js" defer></script>
+  </body>
+</html>

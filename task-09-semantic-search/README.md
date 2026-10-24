@@ -4,6 +4,11 @@
 
 This project is a complete backend service that combines PostgreSQL, real vector embeddings, semantic product search, and Redis caching. It includes a screenshot-ready Semantic Search Lab, deterministic seed data, automated quality checks, and a measured warm-cache performance report.
 
+![Task 9 Semantic Search Lab](docs/evidence/task-09-semantic-search-lab.png)
+
+The screenshot above is captured from the running service and demonstrates
+ranked semantic results together with real Redis cold/warm cache metadata.
+
 ## Objective
 
 This search API understands the meaning of a query instead of relying only on exact keyword matches. It stores product data and embeddings in PostgreSQL, ranks results by semantic similarity, and caches repeated searches in Redis.

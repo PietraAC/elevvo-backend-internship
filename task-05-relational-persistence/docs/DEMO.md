@@ -16,8 +16,15 @@ task.bat seed
 task.bat run
 ```
 
-Keep the API terminal open. Use an API client such as Postman, Insomnia, Bruno,
-or the VS Code REST Client for the requests below.
+Keep the API terminal open. Visit `http://localhost:3000/demo` for the visual
+Relational Persistence Lab. Use an API client such as Postman, Insomnia, Bruno,
+or the VS Code REST Client for the transactional requests below.
+
+## Evidence 0 - Visual lab
+
+Open the demo after seeding. It loads the API health state and active catalog
+directly from PostgreSQL, while presenting the relational model and transaction
+guarantees in a screenshot-ready 1440 by 900 layout.
 
 ## Evidence 1 - Relational design
 
@@ -87,7 +94,7 @@ Capture the final terminal section showing:
 
 - strict TypeScript checking completed;
 - 3 test suites passed;
-- 7 tests passed;
+- 8 tests passed;
 - the production build completed;
 - `Task 05 validation completed successfully.`
 

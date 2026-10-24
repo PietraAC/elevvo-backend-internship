@@ -19,3 +19,11 @@ Required screenshot set:
 4. Render the architecture diagram from the repository README.
 
 Before publishing, confirm that the image contains no usernames, local paths, email addresses, access tokens, or unrelated applications.
+
+## Captured evidence
+
+![Task 9 Semantic Search Lab](task-09-semantic-search-lab.png)
+
+This screenshot is generated from the real browser lab at 1440 × 900. Evidence
+mode performs the same semantic query twice after an empty Redis cache so the
+cold MISS and warm HIT can be compared without manual browser interaction.

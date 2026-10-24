@@ -42,6 +42,11 @@ afterAll(async () => {
 });
 
 describe("Task 5 API", () => {
+  it("serves the screenshot-ready relational persistence lab", async () => {
+    await request(app).get("/demo").expect(200).expect("Content-Type", /html/).expect(/Relational Persistence Lab/);
+    await request(app).get("/demo/assets/styles.css").expect(200).expect("Content-Type", /css/);
+  });
+
   it("creates a user with a cart and rejects the normalized duplicate email", async () => {
     const user = await createUser("Customer@Example.com");
 

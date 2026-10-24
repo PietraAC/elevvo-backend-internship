@@ -107,4 +107,10 @@ fetch('/health/ready')
   .then((payload) => { elements.serviceStatus.textContent = payload.status; })
   .catch(() => { elements.serviceStatus.textContent = 'OFFLINE'; });
 
-void runSearch(elements.query.value);
+const evidenceMode = new URLSearchParams(window.location.search).get("evidence") === "1";
+
+if (evidenceMode) {
+  elements.compareButton.click();
+} else {
+  void runSearch(elements.query.value);
+}

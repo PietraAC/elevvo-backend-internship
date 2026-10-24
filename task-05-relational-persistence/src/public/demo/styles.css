@@ -1,0 +1,51 @@
+:root { color-scheme: dark; --bg:#07131a; --panel:rgba(15,34,43,.88); --line:#254753; --text:#f4fbfc; --muted:#91abb3; --mint:#55e6b1; --blue:#6ca8ff; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; }
+* { box-sizing:border-box; }
+body { margin:0; min-height:100vh; color:var(--text); background:radial-gradient(circle at 80% 0,#164d53 0,transparent 36%),var(--bg); }
+.shell { width:min(1380px,calc(100% - 48px)); margin:auto; padding:28px 0; }
+.hero { display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; }
+.eyebrow { margin:0; color:var(--mint); font-size:.68rem; font-weight:900; letter-spacing:.16em; }
+h1 { margin:3px 0 4px; font-size:clamp(2.2rem,4.5vw,3.8rem); letter-spacing:-.055em; }
+h2 { margin:3px 0 0; font-size:1.15rem; }
+.subtitle, small { color:var(--muted); }
+.subtitle { margin:0; }
+.status { display:flex; align-items:center; gap:12px; padding:13px 17px; border:1px solid var(--line); border-radius:15px; background:var(--panel); }
+.status > span { width:10px; height:10px; border-radius:50%; background:var(--mint); box-shadow:0 0 18px var(--mint); }
+.status div { display:grid; gap:2px; }
+.architecture { display:grid; grid-template-columns:1fr auto 1fr auto 1fr auto 1fr; align-items:center; gap:14px; margin-bottom:14px; padding:12px 18px; border:1px solid var(--line); border-radius:14px; background:rgba(6,20,27,.75); }
+.architecture div { display:grid; text-align:center; gap:2px; }
+.architecture b { color:var(--mint); }
+.architecture strong { font-size:.8rem; }
+.metrics { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:14px; }
+.metrics article,.panel { border:1px solid var(--line); border-radius:16px; background:var(--panel); backdrop-filter:blur(12px); }
+.metrics article { padding:14px 16px; display:grid; gap:2px; }
+.metrics strong { font-size:1.75rem; }
+.metrics .word { color:var(--mint); font-size:1.05rem; margin:7px 0; }
+.metrics span { color:var(--muted); font-size:.68rem; }
+.dashboard { display:grid; grid-template-columns:1.35fr .85fr; gap:14px; margin-bottom:14px; }
+.panel { padding:17px; }
+.panel-heading { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
+.pill { padding:5px 9px; border-radius:999px; color:var(--blue); background:rgba(108,168,255,.12); font-size:.65rem; font-weight:900; letter-spacing:.08em; }
+.pill.live { color:#06271b; background:var(--mint); }
+.model { display:grid; grid-template-columns:1fr auto 1fr auto 1fr auto 1fr; align-items:center; gap:8px; }
+.second-row { margin-top:11px; }
+.entity { display:grid; gap:3px; padding:13px 10px; text-align:center; border:1px solid #315565; border-radius:11px; background:#0a1c25; }
+.entity.primary { border-color:#347b73; }
+.entity.junction { border-color:#4e70a7; }
+.entity strong { font-size:.83rem; }
+.entity span,.connector { color:var(--muted); font-size:.65rem; }
+.connector { white-space:nowrap; }
+.guarantees { display:flex; justify-content:space-between; gap:8px; margin-top:15px; padding-top:13px; border-top:1px solid var(--line); color:var(--mint); font-size:.68rem; font-weight:700; }
+.catalog { display:grid; gap:8px; }
+.product { display:grid; grid-template-columns:1fr auto; gap:5px 12px; padding:10px 12px; border:1px solid #234451; border-radius:11px; background:#0a1c25; }
+.product strong { font-size:.78rem; }
+.product .price { color:var(--mint); }
+.product span { color:var(--muted); font-size:.64rem; }
+.stock { text-align:right; }
+.loading { padding:30px; text-align:center; color:var(--muted); }
+.transaction { display:grid; grid-template-columns:1.1fr 2.4fr .9fr; gap:18px; align-items:center; }
+.transaction ol { display:grid; grid-template-columns:repeat(5,1fr); gap:7px; margin:0; padding:0; list-style:none; }
+.transaction li { display:grid; gap:4px; color:var(--muted); font-size:.68rem; }
+.transaction li span { color:var(--mint); font-weight:900; }
+.result { display:grid; gap:3px; padding:11px; border-left:2px solid var(--mint); }
+.result strong { font-size:.76rem; }
+@media(max-width:900px){.metrics{grid-template-columns:repeat(2,1fr)}.dashboard{grid-template-columns:1fr}.transaction{grid-template-columns:1fr}.architecture{overflow-x:auto}.model{min-width:660px}.model-panel{overflow-x:auto}}

@@ -22,22 +22,25 @@ echo   Task 05 - Relational Persistence
 echo ============================================================
 echo.
 echo   [R] Run the API
+echo   [D] Open the visual demo
 echo   [T] Run the tests
 echo   [V] Verify the complete task
 echo   [S] Prepare and seed the development database
-echo   [D] Stop this task's containers
+echo   [O] Stop this task's containers
 echo   [Q] Quit
 echo.
-choice /C RTVSDQ /N /M "Select an option: "
-if errorlevel 6 goto success
-if errorlevel 5 set "COMMAND=stop" & goto dispatch
-if errorlevel 4 set "COMMAND=seed" & goto dispatch
-if errorlevel 3 set "COMMAND=verify" & goto dispatch
-if errorlevel 2 set "COMMAND=test" & goto dispatch
+choice /C RDTVSOQ /N /M "Select an option: "
+if errorlevel 7 goto success
+if errorlevel 6 set "COMMAND=stop" & goto dispatch
+if errorlevel 5 set "COMMAND=seed" & goto dispatch
+if errorlevel 4 set "COMMAND=verify" & goto dispatch
+if errorlevel 3 set "COMMAND=test" & goto dispatch
+if errorlevel 2 set "COMMAND=demo" & goto dispatch
 if errorlevel 1 set "COMMAND=run" & goto dispatch
 
 :dispatch
 if /I "%COMMAND%"=="run" goto run
+if /I "%COMMAND%"=="demo" goto demo
 if /I "%COMMAND%"=="test" goto test
 if /I "%COMMAND%"=="verify" goto verify
 if /I "%COMMAND%"=="seed" goto seed
@@ -66,6 +69,15 @@ echo.
 call npm.cmd run dev
 set "EXIT_CODE=%ERRORLEVEL%"
 goto finish
+
+:demo
+powershell -NoProfile -Command "try { $r=Invoke-WebRequest -UseBasicParsing http://localhost:3000/health -TimeoutSec 2; if($r.StatusCode -eq 200){ Start-Process 'http://localhost:3000/demo'; exit 0 } } catch {}; exit 1"
+if errorlevel 1 (
+  echo [Task 05] The API is not ready. Run "task.bat run" first.
+  echo [Task 05] Demo URL: http://localhost:3000/demo
+  goto failure
+)
+goto success
 
 :test
 call :check_tools || goto failure
@@ -147,6 +159,7 @@ goto success
 echo Usage: task.bat [command]
 echo.
 echo   run      Starts the database, applies migrations, and runs the API
+echo   demo     Opens the screenshot-ready Relational Persistence Lab
 echo   test     Prepares the test database and runs the tests
 echo   verify   Runs type checking, tests, and the build
 echo   seed     Applies migrations and recreates demonstration data
